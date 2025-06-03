@@ -14,7 +14,7 @@ def findURL(url):
     # url = "https://www.youtube.com/watch?v=WquGhpG5o1Y"
     url = "https://www.youtube.com/watch?v=" + url
 
-    ydl_opts = { 'quiet': True,'skip_download': True }
+    ydl_opts = { 'quiet': True,'skip_download': True , 'proxy': 'http://159.65.245.255' }
 
     ydl = yt_dlp.YoutubeDL(ydl_opts)
     info = ydl.extract_info(url, download=False)
