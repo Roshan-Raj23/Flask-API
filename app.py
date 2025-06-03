@@ -30,4 +30,4 @@ def findURL(url):
     return jsonify(message=best_progressive['url'])
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0')
