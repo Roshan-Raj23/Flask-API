@@ -5,8 +5,12 @@ import yt_dlp
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def index():
+    return "<h1>This page is useless</h1>"
+
 @app.route('/<url>' , methods=['GET'])
-def index(url):
+def findURL(url):
     # url = "https://www.youtube.com/watch?v=WquGhpG5o1Y"
     url = "https://www.youtube.com/watch?v=" + url
 
