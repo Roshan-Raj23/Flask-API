@@ -9,21 +9,27 @@ CORS(app)
 def index():
     return "<h1>This page is useless</h1>"
 
+@app.route('/home')
+def index():
+    return "<h1>This page is also useless. But this is home(just to check)</h1>"
+
 @app.route('/<url>' , methods=['GET'])
 def findURL(url):
     # url = "https://www.youtube.com/watch?v=WquGhpG5o1Y"
     url = "https://www.youtube.com/watch?v=" + url
 
     ydl_opts = { 
+        'cookiefile': '/etc/secrets/cookies.txt',
+        # 'cookiefile': 'cookies.txt',
         'quiet': True,
         'skip_download': True,
         # 'proxy': 'http://100.20.92.101',
-        'http_headers': {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
-        },
+        # 'http_headers': {
+        #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
+        # },
     }
     
-    # ydl_opts = { 'quiet': True,'skip_download': True , 'proxy': 'http://159.65.245.255' }
+    # ydl_opts = { 'quiet': True,'skip_download': True }
 
     ydl = yt_dlp.YoutubeDL(ydl_opts)
     info = ydl.extract_info(url, download=False)
