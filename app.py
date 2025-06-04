@@ -10,7 +10,7 @@ def index():
     return "<h1>This page is useless</h1>"
 
 @app.route('/home')
-def index():
+def home():
     return "<h1>This page is also useless. But this is home(just to check)</h1>"
 
 @app.route('/<url>' , methods=['GET'])
